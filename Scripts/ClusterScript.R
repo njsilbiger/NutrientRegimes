@@ -46,9 +46,95 @@ NutrientAll<-left_join(WaterColumnAll, TurbAll) %>%
   select(Site_Number, Lat, Lon,Date_May, Time_May, Date_August, Time_August, Phosphate_May, Phosphate_August, Silicate_May, Silicate_August, Nitrite_plus_Nitrate_May, Nitrite_plus_Nitrate_August,Ammonia_May, Ammonia_August, Percent_N_May, Percent_N_August) %>%
   drop_na() # drop the not complete cases
 
+# write the cleaned data
 write_csv(NutrientAll, here("Data","NutrientAll.csv"))
+write_csv(NutrientAll_na, here("Data","NutrientAll_na.csv"))
 
-## Organize it
+## Scale the data and select just the numerics
+NutrientAll_scaled<-NutrientAll %>%
+   select_if(is.numeric) %>% # select just the data
+   mutate_all(.funs = scale) # scale it
+
+# k-means clusters with 1 to 12 clusters
+KS_df<-tibble(k = 1:14, SS = NA) # make an empty dataframe to fill in
+
+set.seed(200) # set the seed to get the same one every time
+for (i in 1:14){
+  clusters <- kmeans(NutrientAll_scaled, i) # cluster with i groups
+  KS_df$SS[i]<-clusters$tot.withinss # extract total within SS for all groups
+}
+
+# make a skree plot
+ggplot(KS_df, aes(x = k, y = SS)) +
+  geom_point()+
+  geom_line() +
+  geom_hline(aes(yintercept = SS[8])) # put a line at 8 groups
+
+### Maybe 8 is the best?
+
+### OK, run the k-means cluster with 8 groups 
+clusters <- kmeans(NutrientAll_scaled, 8)
+
+# Bring in the groups into the original dataframe
+
+NutrientAll <-NutrientAll %>%
+  mutate(cluster = factor(clusters$cluster))
+
+# Base Maps
+API<-names(read_table(here("Data","API.txt")))
+register_google(key = API) ### use your own API
+
+
+M_coords<-data.frame(lon =	-149.83, lat = -17.55)
+M1<-get_map(M_coords, maptype = 'satellite', zoom = 12)
+
+map1<-ggmap(M1)+geom_point(data = NutrientAll, mapping = aes(x=Lon, y=Lat, color = cluster), size = 2, alpha = .60)+
+  xlab("")+
+  ylab("")
+
+
+## Run PCA
+# Run the PCA
+pca_V <- prcomp(NutrientAll_scaled, scale. = FALSE, center = FALSE)
+
+# Extract the scores and loadings
+PC_scores <-as_tibble(pca_V$x[,1:2])
+PC_loadings<-as_tibble(pca_V$rotation) %>%
+  bind_cols(labels = rownames(pca_V$rotation))
+
+# Join PC scores with the original data
+NutrientAll <-NutrientAll %>%
+  bind_cols(PC_scores)
+
+p1<-NutrientAll %>%
+  ggplot(aes(x = PC1, y = PC2, color = cluster, shape = cluster))+
+  geom_point() +
+  coord_cartesian(xlim = c(-4, 8), ylim = c(-4, 4)) +
+   scale_shape_manual(values = c(16:24))+
+  scale_colour_hue(l = 45)+
+  scale_fill_hue(l = 45)+
+  ggforce::geom_mark_ellipse(
+    aes(fill = cluster, label = paste(cluster), color = cluster), 
+    alpha = .15, show.legend = FALSE,  label.buffer = unit(1, "mm"))+
+  theme_bw()+
+  theme(legend.position = "none",
+        panel.grid.major = element_blank(), panel.grid.minor = element_blank())
+
+# loadings plot 
+p2<-PC_loadings %>%
+  ggplot(aes(x=PC1, y=PC1, label=labels))+
+  geom_segment(aes(x=0,y=0,xend=PC1*5,yend=PC2*5),
+               arrow=arrow(length=unit(0.1,"cm")), color = "grey")+
+  annotate("text", x = PC_loadings$PC1*5+0.1, y = PC_loadings$PC2*5+.1,
+           label = PC_loadings$labels)+
+#  coord_cartesian(xlim = c(-4, 8), ylim = c(-4, 4)) +
+  theme_bw()+
+  theme(panel.grid.major = element_blank(), panel.grid.minor = element_blank())
+
+p1+p2
+
+
+#### Other things
 ## Scale data and make run a cluster analysis ####
 
 MayData_scaled <-MayData %>%
