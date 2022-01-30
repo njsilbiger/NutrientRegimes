@@ -53,6 +53,7 @@ write_csv(NutrientAll_na, here("Data","NutrientAll_na.csv"))
 ## Scale the data and select just the numerics
 NutrientAll_scaled<-NutrientAll %>%
    select_if(is.numeric) %>% # select just the data
+   select(-c(Lat,Lon)) %>% #remove the lat lon data
    mutate_all(.funs = scale) # scale it
 
 # k-means clusters with 1 to 12 clusters
@@ -81,7 +82,7 @@ NutrientAll <-NutrientAll %>%
   mutate(cluster = factor(clusters$cluster))
 
 # Base Maps
-API<-names(read_table(here("Data","API.txt")))
+API<-names(read_table(here("API.txt")))
 register_google(key = API) ### use your own API
 
 
@@ -109,7 +110,7 @@ NutrientAll <-NutrientAll %>%
 p1<-NutrientAll %>%
   ggplot(aes(x = PC1, y = PC2, color = cluster, shape = cluster))+
   geom_point() +
-  coord_cartesian(xlim = c(-4, 8), ylim = c(-4, 4)) +
+  coord_cartesian(xlim = c(-8, 8), ylim = c(-5, 5)) +
    scale_shape_manual(values = c(16:24))+
   scale_colour_hue(l = 45)+
   scale_fill_hue(l = 45)+
