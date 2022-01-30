@@ -192,3 +192,14 @@ NutrientAll_coral %>%
 NutrientAll_coral %>%
   ggplot(aes(x = cluster, y = Acr_count_adj))+
   geom_boxplot()
+
+model<- multinom(Poc_cat~cluster, data = NutrientAll_coral)
+tt <- broom::tidy(model,conf.int=TRUE)
+#tt <- dplyr::filter(tt, term!="(Intercept)")
+
+ggplot(tt, aes(x = y.level, y = estimate))+
+  geom_point()+
+  geom_errorbar(aes(ymin = estimate-std.error, ymax = estimate+std.error),width = 0.25 ) +
+  coord_flip()+
+  geom_hline(aes(yintercept = 0))+
+  facet_wrap(~term)
