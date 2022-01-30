@@ -22,7 +22,8 @@ AugustData<-read_csv(here("Data","Lagoon_nutrients_August_2020.csv"))
 ## rename the column names to have august and may
 MayData<-MayData%>% 
   select(-Entry, Site_Number = Site_number) %>% # make names same across sites
-  rename_at(vars(Coral_sampler:Notes_Processing), .funs =  ~ paste(.x,"May", sep = "_"))
+  rename_at(vars(Coral_sampler:Notes_Processing), .funs =  ~ paste(.x,"May", sep = "_")) %>%
+  mutate(Ammonia_May = ifelse(Ammonia_May>0,Ammonia_May,0)) # there are some negative values.  This makes them 0
 
 AugustData<-AugustData %>%
   select(-c(Lat,Lon, Sample_ID)) %>% # These are not complete for August
@@ -61,6 +62,7 @@ write_csv(NutrientAll_na, here("Data","NutrientAll_na.csv"))
 NutrientAll_scaled<-NutrientAll %>%
    select_if(is.numeric) %>% # select just the data
    select(-c(Lat,Lon)) %>% #remove the lat lon data
+   mutate_all(.funs = log) %>% # log transform it first
    mutate_all(.funs = scale) # scale it
 
 # k-means clusters with 1 to 12 clusters
@@ -105,13 +107,14 @@ NutrientAll %>%
 
 # Base Maps
 API<-names(read_table(here("API.txt")))
-register_google(key = API) ### use your own API
+register_google(key = API, write=TRUE) ### use your own API
 
 
 M_coords<-data.frame(lon =	-149.83, lat = -17.55)
 M1<-get_map(M_coords, maptype = 'satellite', zoom = 12)
 
-map1<-ggmap(M1)+geom_point(data = NutrientAll, mapping = aes(x=Lon, y=Lat, color = cluster), size = 2, alpha = .60)+
+map1<-ggmap(M1)+
+  geom_point(data = NutrientAll, mapping = aes(x=Lon, y=Lat, color = cluster), size = 2, alpha = .60)+
   xlab("")+
   ylab("")
 
