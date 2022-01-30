@@ -96,6 +96,7 @@ NutLong<-NutrientAll %>%
 ggplot(NutLong,aes(x = value, y = NutParam, fill = NutParam))+
   geom_density_ridges(rel_min_height = 0.01)+
   theme_bw()+
+  xlim(0,3.5)+
   theme(legend.position = "null")
 
 # Looks like some silicate outliers
