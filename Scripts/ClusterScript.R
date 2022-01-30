@@ -43,6 +43,9 @@ TurbAugust<-read_csv(here("Data","Turb_CHN_Aug2020_compiled.csv")) %>%
   group_by(Site_Number) %>% ## August has two sites that were collected twice and have high variablity (99 and 96).  I am going to take the average
   summarise_if(.predicate = is.numeric,.funs = mean)
 
+## Read in coral data
+CoralData<-read_csv(here("Data","Site_coral_categories.csv"))%>%
+  rename(Site_Number = Site)
 
 # Join the data by sample ID
 
@@ -56,13 +59,13 @@ NutrientAll<-left_join(WaterColumnAll, TurbAll) %>%
 
 # write the cleaned data
 write_csv(NutrientAll, here("Data","NutrientAll.csv"))
-write_csv(NutrientAll_na, here("Data","NutrientAll_na.csv"))
+#write_csv(NutrientAll_na, here("Data","NutrientAll_na.csv"))
 
 ## Scale the data and select just the numerics
 NutrientAll_scaled<-NutrientAll %>%
    select_if(is.numeric) %>% # select just the data
    select(-c(Lat,Lon)) %>% #remove the lat lon data
-   mutate_all(.funs = log) %>% # log transform it first
+   mutate_all(.funs = ~log(.x+0.1)) %>% # log transform it first
    mutate_all(.funs = scale) # scale it
 
 # k-means clusters with 1 to 12 clusters
@@ -78,12 +81,13 @@ for (i in 1:14){
 ggplot(KS_df, aes(x = k, y = SS)) +
   geom_point()+
   geom_line() +
-  geom_hline(aes(yintercept = SS[8])) # put a line at 8 groups
+  geom_hline(aes(yintercept = SS[6])) # put a line at 8 groups
+ggsave(here("Output","skreeplot.png"))
 
 ### Maybe 8 is the best?
 
 ### OK, run the k-means cluster with 8 groups 
-clusters <- kmeans(NutrientAll_scaled, 8)
+clusters <- kmeans(NutrientAll_scaled, 6)
 
 # Bring in the groups into the original dataframe
 
@@ -100,14 +104,15 @@ ggplot(NutLong,aes(x = value, y = NutParam, fill = NutParam))+
   theme_bw()+
   xlim(0,3.5)+
   theme(legend.position = "null")
+ggsave(here("Output","ridgeplot.png"))
 
 # Looks like some silicate outliers
 NutrientAll %>%
   filter(Silicate_August>3)
 
 # Base Maps
-API<-names(read_table(here("API.txt")))
-register_google(key = API, write=TRUE) ### use your own API
+#API<-names(read_table(here("API.txt")))
+#register_google(key = API, write=TRUE) ### use your own API
 
 
 M_coords<-data.frame(lon =	-149.83, lat = -17.55)
@@ -118,6 +123,7 @@ map1<-ggmap(M1)+
   xlab("")+
   ylab("")
 
+ggsave(filename =  here("Output","MapClusters.png"), plot =map1)
 
 ## Run PCA
 # Run the PCA
@@ -158,5 +164,31 @@ p2<-PC_loadings %>%
   theme(panel.grid.major = element_blank(), panel.grid.minor = element_blank())
 
 p1+p2
+ggsave(here("Output","PCAclust.png"), width = 8, height = 4)
+
+## Make a set of boxplots for each cluster
+NutLong %>%
+  ggplot(aes(x = NutParam, y = value+.1, color = cluster))+
+  geom_boxplot()+
+  coord_trans(y="log")+
+  facet_wrap(~cluster) +
+  ylab("Concentration")+
+  xlab("")+
+  theme(axis.text.x = element_text(angle = 90, vjust = -.1)) 
+ggsave(here("Output","boxplots_clust.png"), height = 10, width = 8)
+
+# how many samples are in each cluster
+clusters$size
+
+# join in the coral data
+NutrientAll_coral<-left_join(NutrientAll, CoralData)
 
 
+# make a boxplot on corals by nutrient regime
+NutrientAll_coral %>%
+  ggplot(aes(x = cluster, y = log(Poc_count_adj+1)))+
+  geom_boxplot()
+
+NutrientAll_coral %>%
+  ggplot(aes(x = cluster, y = Acr_count_adj))+
+  geom_boxplot()
