@@ -54,7 +54,10 @@ WaterColumnAll<-left_join(MayData, AugustData)
 
 # Join all nutrient data
 NutrientAll<-left_join(WaterColumnAll, TurbAll) %>%
-  select(Site_Number, Lat, Lon,Date_May, Time_May, Phosphate_May, Phosphate_August, Silicate_May, Silicate_August, Nitrite_plus_Nitrate_May, Nitrite_plus_Nitrate_August,Ammonia_May, Ammonia_August, Percent_N_May, Percent_N_August) %>%
+  mutate(HighSi = ifelse(Silicate_May<1.5, "No","Yes")) %>%
+#  filter(Silicate_May<1.5)%>% # remove low salinity points
+ # filter(Silicate_August<1.5)%>%
+  select(Site_Number, Lat, Lon,Date_May, Time_May, Phosphate_May, Phosphate_August, Silicate_May, Silicate_August, Nitrite_plus_Nitrate_May, Nitrite_plus_Nitrate_August,Ammonia_May, Ammonia_August, Percent_N_May, Percent_N_August, HighSi) %>%
   drop_na() # drop the not complete cases
 
 # write the cleaned data
@@ -63,16 +66,17 @@ write_csv(NutrientAll, here("Data","NutrientAll.csv"))
 
 ## Scale the data and select just the numerics
 NutrientAll_scaled<-NutrientAll %>%
+  filter(HighSi == "No") %>%
    select_if(is.numeric) %>% # select just the data
    select(-c(Lat,Lon)) %>% #remove the lat lon data
-   mutate_all(.funs = ~log(.x+0.1)) %>% # log transform it first
+   mutate_all(.funs = ~log(.x+0.01)) %>% # log transform it first
    mutate_all(.funs = scale) # scale it
 
 # k-means clusters with 1 to 12 clusters
-KS_df<-tibble(k = 1:14, SS = NA) # make an empty dataframe to fill in
+KS_df<-tibble(k = 1:8, SS = NA) # make an empty dataframe to fill in
 
 set.seed(200) # set the seed to get the same one every time
-for (i in 1:14){
+for (i in 1:8){
   clusters <- kmeans(NutrientAll_scaled, i) # cluster with i groups
   KS_df$SS[i]<-clusters$tot.withinss # extract total within SS for all groups
 }
@@ -81,18 +85,27 @@ for (i in 1:14){
 ggplot(KS_df, aes(x = k, y = SS)) +
   geom_point()+
   geom_line() +
-  geom_hline(aes(yintercept = SS[6])) # put a line at 8 groups
+  geom_hline(aes(yintercept = SS[4])) # put a line at 8 groups
 ggsave(here("Output","skreeplot.png"))
 
 ### Maybe 8 is the best?
 
 ### OK, run the k-means cluster with 8 groups 
-clusters <- kmeans(NutrientAll_scaled, 6)
+clusters <- kmeans(NutrientAll_scaled, 4)
 
 # Bring in the groups into the original dataframe
 
-NutrientAll <-NutrientAll %>%
-  mutate(cluster = factor(clusters$cluster))
+NutrientAll_low <-NutrientAll %>%
+  filter(HighSi == "No") %>%
+  mutate(cluster = clusters$cluster)
+
+# add in the High silicate values as a new cluster
+NutrientAll_high <-NutrientAll %>%
+  filter(HighSi == "Yes") %>%
+  mutate(cluster = 5)
+
+NutrientAll <-bind_rows(NutrientAll_low, NutrientAll_high) %>%
+  mutate(cluster = factor(cluster))
 
 # Make some distribution plots
 # Make the data long for ggridges
@@ -103,6 +116,7 @@ ggplot(NutLong,aes(x = value, y = NutParam, fill = NutParam))+
   geom_density_ridges(rel_min_height = 0.01)+
   theme_bw()+
   xlim(0,3.5)+
+  scale_fill_viridis_d()+
   theme(legend.position = "null")
 ggsave(here("Output","ridgeplot.png"))
 
@@ -119,7 +133,8 @@ M_coords<-data.frame(lon =	-149.83, lat = -17.55)
 M1<-get_map(M_coords, maptype = 'satellite', zoom = 12)
 
 map1<-ggmap(M1)+
-  geom_point(data = NutrientAll, mapping = aes(x=Lon, y=Lat, color = cluster), size = 2, alpha = .60)+
+  geom_point(data = NutrientAll, mapping = aes(x=Lon, y=Lat, color = cluster), size = 1.5)+
+  scale_color_viridis_d(option = "B")+
   xlab("")+
   ylab("")
 
@@ -127,7 +142,7 @@ ggsave(filename =  here("Output","MapClusters.png"), plot =map1)
 
 ## Run PCA
 # Run the PCA
-pca_V <- prcomp(NutrientAll_scaled, scale. = FALSE, center = FALSE)
+pca_V <- prcomp(NutrientAll[,6:15], scale. = TRUE, center = TRUE)
 
 # Extract the scores and loadings
 PC_scores <-as_tibble(pca_V$x[,1:2])
@@ -139,15 +154,18 @@ NutrientAll <-NutrientAll %>%
   bind_cols(PC_scores)
 
 p1<-NutrientAll %>%
-  ggplot(aes(x = PC1, y = PC2, color = cluster, shape = cluster))+
+  ggplot(aes(x = PC1, y = PC2, color = cluster, shape = cluster, fill = cluster))+
   geom_point() +
   coord_cartesian(xlim = c(-8, 8), ylim = c(-5, 5)) +
    scale_shape_manual(values = c(16:24))+
-  scale_colour_hue(l = 45)+
-  scale_fill_hue(l = 45)+
-  ggforce::geom_mark_ellipse(
-    aes(fill = cluster, label = paste(cluster), color = cluster), 
-    alpha = .15, show.legend = FALSE,  label.buffer = unit(1, "mm"))+
+  scale_color_viridis_d(option = "B")+
+  scale_fill_viridis_d(option = "B")+
+#  scale_colour_hue(l = 45)+
+#  scale_fill_hue(l = 45)+
+  stat_ellipse(alpha = 0.15, geom = "polygon")+
+  # ggforce::geom_mark_ellipse(
+  #   aes(fill = cluster, label = paste(cluster), color = cluster), 
+  #   alpha = .15, show.legend = FALSE,  label.buffer = unit(1, "mm"))+
   theme_bw()+
   theme(legend.position = "none",
         panel.grid.major = element_blank(), panel.grid.minor = element_blank())
@@ -166,12 +184,16 @@ p2<-PC_loadings %>%
 p1+p2
 ggsave(here("Output","PCAclust.png"), width = 8, height = 4)
 
+map1 +(p1/p2)
+ggsave(here("Output","PCAclust_map.png"), width = 12, height = 12)
+
 ## Make a set of boxplots for each cluster
 NutLong %>%
-  ggplot(aes(x = NutParam, y = value+.1, color = cluster))+
+  ggplot(aes(x = NutParam, y = value+.01, color = cluster))+
   geom_boxplot()+
   coord_trans(y="log")+
   facet_wrap(~cluster) +
+  scale_color_viridis_d(option = "B")+
   ylab("Concentration")+
   xlab("")+
   theme(axis.text.x = element_text(angle = 90, vjust = -.1)) 
