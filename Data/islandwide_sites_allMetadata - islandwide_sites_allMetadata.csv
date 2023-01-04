@@ -1,0 +1,230 @@
+Site,Jan-16,May-16,Jul-16,Jul-19,Aug-20,May-21,Latitude,Longitude,Distsance.to.crest,Distance_to_shore,Distance_to_pass,Distance_to_deep_lagoon_water,Distance_to_population_center,Population_center,Island_shore,Habitat,Lagoon
+1,Yes,Yes,Yes,NA,NA,Yes,-17.58796058,-149.850116,843.22,195.02,1000.33,220.27,195.02,Vai'anae/Atiha,SW,Fringing reef,Vaianae
+2,Yes,Yes,Yes,NA,Yes,Yes,-17.59042955,-149.8513141,553.98,506.75,809.65,250,506.75,Vai'anae/Atiha,SW,Mid lagoon,Vaianae
+3,Yes,Yes,Yes,Yes,Yes,Yes,-17.59052703,-149.861271,307.22,1164.85,1707.27,290.83,1164.85,Vai'anae/Atiha,SW,Reef crest,Vaianae
+4,Yes,Yes,Yes,Yes,Yes,Yes,-17.58473849,-149.8584346,968.86,664.71,1788.31,203.81,664.71,Vai'anae/Atiha,SW,Fringing reef,Vaianae
+5,Yes,NA,Yes,NA,NA,Yes,-17.58509698,-149.8672942,205.62,1171.22,1732.15,450.97,1610.76,Vai'anae/Atiha,SW,Reef crest,Vaianae
+6,Yes,Yes,Yes,NA,Yes,Yes,-17.57797027,-149.8731899,200.52,1057.87,735.57,595.65,2279.93,Vai'anae/Atiha,SW,Reef crest,Vaianae
+7,Yes,Yes,Yes,NA,Yes,Yes,-17.57851023,-149.8622209,1040.23,292.1,1847.12,48.29,1155.44,Vai'anae/Atiha,SW,Fringing reef,Vaianae
+8,Yes,NA,Yes,Yes,Yes,Yes,-17.58234638,-149.8545238,1399.18,211.44,1770.73,10.02,211.44,Vai'anae/Atiha,SW,Fringing reef,Vaianae
+9,Yes,Yes,Yes,NA,Yes,Yes,-17.57452698,-149.8740018,377.77,859.38,525.73,273.81,2416.43,Vai'anae/Atiha,SW,Reef crest,Vaianae
+10,Yes,Yes,Yes,NA,Yes,Yes,-17.5752091,-149.8700014,628.82,586.27,908.48,193.92,1988.96,Vai'anae/Atiha,SW,Mid lagoon,Vaianae
+11,Yes,Yes,Yes,NA,Yes,Yes,-17.5727299,-149.8661581,1132.18,133.13,1316.85,34.15,1831.95,Vai'anae/Atiha,SW,Fringing reef,Vaianae
+12,Yes,Yes,Yes,NA,Yes,NA,-17.59364896,-149.8482386,309.66,800.92,340.23,162.79,800.92,Vai'anae/Atiha,SW,Reef pass,Vaianae
+13,Yes,Yes,Yes,NA,Yes,Yes,-17.5676907,-149.8705731,1139.83,186.07,1003.2,55.63,2585.05,Vai'anae/Atiha,SW,Fringing reef,Vaianae
+14,Yes,Yes,Yes,NA,Yes,Yes,-17.58281082,-149.8662589,438.97,916.93,1695.09,242.68,1458.68,Vai'anae/Atiha,SW,Mid lagoon,Vaianae
+16,Yes,Yes,Yes,NA,Yes,Yes,-17.5869498,-149.8426075,1190.12,149.86,1101.59,315.22,149.86,Vai'anae/Atiha,SW,Bay,Maatea
+17,Yes,NA,Yes,NA,Yes,Yes,-17.59328585,-149.8390346,683.48,215.33,607.29,349.81,768.71,Vai'anae/Atiha,SW,Fringing reef,Maatea
+18,Yes,NA,Yes,NA,NA,NA,-17.59567268,-149.8408034,354.18,539.29,305.04,106.85,940.67,Vai'anae/Atiha,SW,Reef pass,Maatea
+19,Yes,NA,Yes,NA,Yes,Yes,-17.59828926,-149.8398006,193.07,735.46,334.74,282.26,1236.87,Vai'anae/Atiha,SW,Reef crest,Maatea
+20,Yes,NA,Yes,NA,NA,Yes,-17.60238365,-149.8303391,222.85,1215.01,1419.62,1366.33,2079.74,Vai'anae/Atiha,SW,Reef crest,Maatea
+21,Yes,Yes,Yes,NA,NA,Yes,-17.59344385,-149.826245,1240.68,142.84,1829.11,1610.68,1925.87,Vai'anae/Atiha,SW,Fringing reef,Maatea
+22,Yes,Yes,Yes,Yes,Yes,Yes,-17.60326945,-149.810896,238.14,1246.02,3451.57,865.13,1246.02,Ma'atea,SW,Reef crest,Maatea
+23,Yes,NA,Yes,NA,NA,NA,-17.5924521,-149.8151988,1379.78,115.13,3586.43,209.77,450.28,Ma'atea,SW,Fringing reef,Maatea
+24,Yes,Yes,Yes,NA,Yes,Yes,-17.59325316,-149.8095427,1244.37,153.45,3031.16,168.45,153.45,Ma'atea,SW,Fringing reef,Maatea
+25,Yes,Yes,Yes,NA,Yes,Yes,-17.59436904,-149.8067542,1115.81,313.51,2895.1,119.94,313.51,Ma'atea,SW,Fringing reef,Maatea
+26,Yes,Yes,Yes,NA,Yes,Yes,-17.59146245,-149.8037116,1023.71,172.28,2420.52,113.71,172.28,Ma'atea,SE,Fringing reef,Maatea
+27,Yes,Yes,Yes,Yes,Yes,Yes,-17.59423829,-149.7964097,184.21,996.38,2225.84,450.33,996.38,Ma'atea,SE,Reef crest,Maatea
+28,Yes,Yes,Yes,NA,NA,Yes,-17.59882126,-149.8193942,695.02,685.78,4218.68,838.91,1176.93,Ma'atea,SW,Mid lagoon,Maatea
+29,Yes,Yes,Yes,NA,NA,Yes,-17.59742064,-149.8283843,789.87,623.66,5084.49,1653.55,1930.09,Ma'atea,SW,Mid lagoon,Maatea
+30,Yes,Yes,Yes,NA,Yes,Yes,-17.59837987,-149.8107668,716.16,718.52,3507.52,389.04,718.52,Ma'atea,SW,Mid lagoon,Maatea
+31,Yes,Yes,Yes,Yes,Yes,Yes,-17.59795985,-149.8038875,661.3,783.44,2988.97,212.1,783.44,Ma'atea,SW,Mid lagoon,Maatea
+32,Yes,Yes,Yes,NA,Yes,Yes,-17.59291001,-149.7998923,576.01,609.09,2294.73,76.72,609.09,Ma'atea,SE,Mid lagoon,Maatea
+33,Yes,Yes,Yes,Yes,Yes,NA,-17.58718274,-149.7909091,146.28,1040.07,1288.52,426.5,1040.07,Ma'atea,SE,Reef crest,Maatea
+34,Yes,Yes,Yes,NA,Yes,Yes,-17.58067293,-149.7936002,715.64,462.98,815.17,115.53,697,Ma'atea,SE,Mid lagoon,Maatea
+35,Yes,Yes,Yes,Yes,Yes,Yes,-17.58383224,-149.7985487,1040.17,157.41,1436.85,60.1,157.41,Ma'atea,SE,Fringing reef,Maatea
+36,Yes,Yes,Yes,NA,Yes,Yes,-17.57943392,-149.7968348,1060.36,100.49,997.76,7.85,464.16,Ma'atea,SE,Fringing reef,Maatea
+37,Yes,Yes,Yes,Yes,Yes,Yes,-17.57349375,-149.7942877,855.19,245.76,723.21,10.42,1146.81,Ma'atea,SE,Fringing reef,Maatea
+38,Yes,Yes,Yes,NA,Yes,Yes,-17.56786983,-149.7925031,743.42,71.41,789.05,16.36,1531.14,Afareaitu,SE,Fringing reef,Haumi
+39,Yes,NA,Yes,NA,Yes,Yes,-17.57239278,-149.7883265,212.17,531.66,144.03,6.98,1634.15,Ma'atea,SE,Reef pass,Haumi
+40,Yes,Yes,Yes,NA,Yes,Yes,-17.57566885,-149.7885266,247.25,762.66,47.99,10.44,1360.37,Ma'atea,SE,Reef pass,Maatea
+41,Yes,Yes,Yes,NA,Yes,Yes,-17.57019438,-149.7873946,158.87,560.67,286.59,186.46,1577.78,Afareaitu,SE,Reef crest,Haumi
+43,Yes,Yes,Yes,Yes,Yes,Yes,-17.56248479,-149.7830339,142.29,725.56,616.58,321.63,966.93,Afareaitu,SE,Reef crest,Haumi
+44,Yes,Yes,Yes,NA,Yes,Yes,-17.56150126,-149.7854925,415.85,462.78,654.28,63.36,725.67,Afareaitu,SE,Mid lagoon,Haumi
+45,Yes,Yes,Yes,NA,Yes,Yes,-17.56024699,-149.7891006,792.25,58.15,962.07,10.49,502.16,Afareaitu,SE,Fringing reef,Haumi
+46,Yes,Yes,Yes,Yes,Yes,Yes,-17.55798848,-149.7809429,270.05,828.24,81.8,20.75,889.08,Afareaitu,SE,Reef pass,Haumi
+47,Yes,Yes,Yes,Yes,Yes,Yes,-17.59313297,-149.8546619,185.33,905.3,841.61,182.05,905.3,Vai'anae/Atiha,SW,Reef crest,Vaianae
+48,Yes,Yes,Yes,NA,NA,Yes,-17.59491873,-149.8171821,128.75,346.82,2717.7,427.58,784.59,Ma'atea,SW,Fringing reef,Maatea
+50,Yes,Yes,Yes,Yes,Yes,Yes,-17.60194159,-149.8021502,211.9,1257.27,3234.36,669.18,1257.27,Ma'atea,SW,Reef crest,Maatea
+51,Yes,Yes,Yes,NA,Yes,Yes,-17.55479179,-149.7891155,1180.53,76.43,1010.89,36.81,76.43,Afareaitu,SE,Bay,Haumi
+52,Yes,Yes,Yes,NA,Yes,Yes,-17.54829758,-149.780663,826.05,158.27,703.99,21.58,158.27,Afareaitu,SE,Fringing reef,Farehau
+53,Yes,Yes,Yes,NA,Yes,Yes,-17.54553717,-149.7782538,746.75,75.65,891.24,24,713.59,Afareaitu,SE,Fringing reef,Farehau
+54,Yes,Yes,NA,NA,Yes,Yes,-17.54048841,-149.773951,786.2,86.26,1524.43,12.37,1514.31,Afareaitu,SE,Fringing reef,Farehau
+55,Yes,Yes,NA,NA,NA,Yes,-17.5438892,-149.7747479,591.07,58.68,1139.2,12.79,1142.44,Afareaitu,SE,Fringing reef,Farehau
+56,Yes,Yes,Yes,NA,Yes,Yes,-17.54065563,-149.7703816,502.09,380.81,1612.56,278.65,1731.75,Afareaitu,SE,Mid lagoon,Farehau
+57,Yes,Yes,Yes,NA,Yes,Yes,-17.54170898,-149.7665665,147.79,790.24,1828.6,855.71,2017.57,Afareaitu,SE,Reef crest,Farehau
+58,Yes,Yes,Yes,NA,Yes,Yes,-17.54808988,-149.7732428,175.48,520.22,734.88,332.01,1154.39,Afareaitu,SE,Reef crest,Farehau
+59,Yes,Yes,Yes,NA,Yes,Yes,-17.54354672,-149.7706065,302.74,441.53,1323.71,237.36,1552.66,Afareaitu,SE,Reef crest,Farehau
+60,Yes,Yes,Yes,Yes,Yes,Yes,-17.55227462,-149.7773983,328.61,700.53,184.94,32.56,844.67,Afareaitu,SE,Reef pass,Farehau
+61,Yes,Yes,Yes,NA,Yes,Yes,-17.5352866,-149.7726642,1133.76,63.21,1503.91,136,1313,Vai'are,SE,Fringing reef,Farehau
+62,Yes,Yes,Yes,NA,Yes,Yes,-17.53598314,-149.7679931,645.68,550.59,1325.37,310.97,1580.7,Vai'are,SE,Mid lagoon,Farehau
+63,Yes,Yes,Yes,Yes,Yes,Yes,-17.53573436,-149.7629378,161.5,1077.42,1210.08,801.16,1931.53,Vai'are,SE,Reef crest,Farehau
+64,Yes,Yes,Yes,NA,Yes,Yes,-17.52938876,-149.7673331,477.45,642,620.65,104.41,1153.49,Vai'are,SE,Mid lagoon,Farehau
+65,Yes,Yes,Yes,Yes,Yes,Yes,-17.52484376,-149.7649524,318.12,1139.97,114.17,34.6,1265.84,Vai'are,SE,Reef pass,Farehau
+66,Yes,Yes,Yes,Yes,Yes,Yes,-17.52840162,-149.773503,1146.76,120.82,1093.39,22.11,586.52,Vai'are,SE,Fringing reef,Farehau
+67,Yes,Yes,Yes,Yes,Yes,Yes,-17.5226684,-149.7793687,1748.73,119.77,1603.81,11.56,119.77,Vai'are,SE,Bay,Farehau
+68,Yes,Yes,Yes,Yes,Yes,Yes,-17.52006574,-149.7738316,1147.06,100.21,1043.91,17.66,201.15,Vai'are,SE,Fringing reef,Teavaro
+69,Yes,Yes,Yes,NA,Yes,Yes,-17.51597897,-149.7687791,636.82,188.19,836.6,18.23,910.56,Vai'are,SE,Fringing reef,Teavaro
+70,Yes,Yes,Yes,NA,Yes,Yes,-17.51029755,-149.7665881,516.91,250.59,1324.25,25.57,1553.77,Vai'are,SE,Fringing reef,Teavaro
+71,Yes,Yes,Yes,NA,Yes,Yes,-17.51072251,-149.7630267,138.16,627.72,1265.37,156.91,1739.23,Vai'are,SE,Reef crest,Teavaro
+73,Yes,Yes,Yes,Yes,Yes,Yes,-17.51638885,-149.7642064,158.59,564.67,628.61,147.29,1304,Vai'are,SE,Reef crest,Teavaro
+74,Yes,Yes,Yes,Yes,Yes,Yes,-17.50532775,-149.7609331,111.74,538.62,1883.09,405.67,2312.16,Vai'are,SE,Reef crest,Teavaro
+75,Yes,Yes,NA,Yes,Yes,Yes,-17.50326782,-149.7645343,565.09,101.47,2081.07,519.86,2316.62,Vai'are,SE,Fringing reef,Teavaro
+76,Yes,Yes,Yes,Yes,Yes,NA,-17.50094125,-149.7627215,525.28,158.19,2348.37,802.45,2626.16,Vai'are,SE,Fringing reef,Teavaro
+77,Yes,Yes,Yes,Yes,Yes,Yes,-17.50258469,-149.7597522,161.37,474.23,2201.84,729.57,2627.04,Vai'are,SE,Reef crest,Teavaro
+78,Yes,Yes,Yes,Yes,Yes,Yes,-17.50024941,-149.7576461,182.54,306.48,2514.66,1067.77,3010.98,Vai'are,SE,Reef crest,Teavaro
+79,Yes,NA,Yes,NA,NA,Yes,-17.60410798,-149.8210349,147.06,1207.06,2393.47,1354.72,1745.92,Ma'atea,SW,Reef crest,Maatea
+80,Yes,Yes,Yes,NA,Yes,Yes,-17.56380737,-149.8743451,1085.84,305.48,982.11,451.87,3090.23,Vai'anae/Atiha,SW,Fringing reef,Haapiti
+80,Yes,Yes,Yes,NA,Yes,Yes,-17.56380737,-149.8743451,1085.84,305.48,982.11,451.87,3090.23,Vai'anae/Atiha,SW,Fringing reef,Haapiti
+81,Yes,Yes,Yes,NA,Yes,Yes,-17.56509583,-149.8775593,746.14,643.14,704.84,342.42,3250.62,Vai'anae/Atiha,SW,Mid lagoon,Haapiti
+82,Yes,Yes,Yes,NA,Yes,Yes,-17.56890935,-149.8785377,340.13,892.84,260.19,65.75,3116.7,Vai'anae/Atiha,SW,Reef pass,Haapiti
+83,Yes,Yes,Yes,Yes,Yes,NA,-17.56706047,-149.8830503,137.07,1256.09,539.73,564.55,3634.65,Vai'anae/Atiha,SW,Reef crest,Haapiti
+84,Yes,Yes,Yes,NA,Yes,Yes,-17.56043784,-149.8865255,248.11,980.05,199.73,69.35,4324.03,Vai'anae/Atiha,SW,Reef pass,Haapiti
+85,Yes,NA,Yes,NA,Yes,Yes,-17.56350797,-149.8812157,474.27,924.34,822.05,589.31,3667.63,Vai'anae/Atiha,SW,Mid lagoon,Haapiti
+86,Yes,Yes,Yes,Yes,Yes,Yes,-17.55850204,-149.8826298,709.31,538.52,655.79,35.48,4126.17,Vai'anae/Atiha,SW,Mid lagoon,Haapiti
+87,Yes,Yes,Yes,NA,Yes,Yes,-17.55897637,-149.8788434,978.42,384.87,1030.54,206.46,3808.43,Vai'anae/Atiha,SW,Fringing reef,Haapiti
+88,Yes,Yes,Yes,NA,Yes,NA,-17.56132901,-149.8766332,1022.03,385.87,1248.72,558.51,3461.01,Vai'anae/Atiha,SW,Fringing reef,Haapiti
+89,Yes,Yes,Yes,Yes,Yes,Yes,-17.55473723,-149.8855922,731.32,561.53,704.63,141.06,4642.18,Vai'anae/Atiha,SW,Fringing reef,Haapiti
+90,Yes,Yes,Yes,NA,Yes,Yes,-17.55573928,-149.8879232,480.06,792.23,527.26,266.16,4750.91,Vai'anae/Atiha,SW,Mid lagoon,Haapiti
+90 #2,Yes,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+91,Yes,Yes,Yes,Yes,Yes,Yes,-17.55741642,-149.8905109,160.63,1091.43,373.42,505.77,4863.83,Vai'anae/Atiha,SW,Reef crest,Haapiti
+92,Yes,Yes,Yes,Yes,Yes,Yes,-17.55032935,-149.897047,217.68,788.94,1408.82,1006.09,5883.97,Vai'anae/Atiha,SW,Reef crest,Haapiti
+93,Yes,Yes,Yes,Yes,Yes,Yes,-17.5463777,-149.8911702,970.47,75.3,1581.11,586.73,5717.97,Vai'anae/Atiha,SW,Fringing reef,Haapiti
+94,Yes,Yes,Yes,Yes,Yes,Yes,-17.54780925,-149.8949618,571.79,438.88,1540.19,847.09,5892.22,Vai'anae/Atiha,SW,Mid lagoon,Haapiti
+95,Yes,Yes,Yes,Yes,Yes,Yes,-17.54493568,-149.9022286,184.55,606.85,776.39,716.48,6683.84,Vai'anae/Atiha,SW,Reef crest,Haapiti
+96,Yes,Yes,Yes,NA,Yes,Yes,-17.53815631,-149.9044886,587.76,170.14,500.15,113.09,7360.28,Vai'anae/Atiha,SW,Fringing reef,Haapiti
+96,Yes,Yes,Yes,NA,Yes,Yes,-17.53815631,-149.9044886,587.76,170.14,500.15,113.09,7360.28,Vai'anae/Atiha,SW,Fringing reef,Haapiti
+97,Yes,Yes,Yes,NA,Yes,Yes,-17.54097733,-149.9067632,194.05,563.28,160.22,99.38,7334.53,Vai'anae/Atiha,SW,Reef pass,Haapiti
+98,Yes,Yes,Yes,Yes,Yes,Yes,-17.54181552,-149.8985127,707.67,99.12,1039.13,785.64,6621.96,Vai'anae/Atiha,SW,Fringing reef,Haapiti
+99,Yes,Yes,Yes,NA,Yes,Yes,-17.53222134,-149.9058889,1022.16,116.47,909.66,740.92,7979.92,Vai'anae/Atiha,SW,Fringing reef,Hauru
+99,Yes,Yes,Yes,NA,Yes,Yes,-17.53222134,-149.9058889,1022.16,116.47,909.66,740.92,7979.92,Vai'anae/Atiha,SW,Fringing reef,Hauru
+100,Yes,Yes,Yes,NA,Yes,Yes,-17.53432151,-149.9101318,541.16,590.83,616.13,605.45,8090.64,Vai'anae/Atiha,SW,Mid lagoon,Hauru
+101,Yes,Yes,Yes,Yes,Yes,Yes,-17.53755852,-149.9121106,150.28,894.05,363.32,495.33,8013.48,Vai'anae/Atiha,SW,Reef crest,Hauru
+102,Yes,Yes,Yes,Yes,Yes,Yes,-17.5292844,-149.9181631,189.13,930.36,1474.65,1340.31,8024.01,Papeto'ai,SW,Reef crest,Hauru
+103,Yes,Yes,Yes,NA,Yes,Yes,-17.52734936,-149.9140272,650.85,461.14,1474.08,1052.22,7807.65,Papeto'ai,SW,Mid lagoon,Hauru
+104,Yes,Yes,Yes,NA,Yes,Yes,-17.52568094,-149.9107429,1045.09,93.08,1571.45,921.86,7695.22,Papeto'ai,SW,Fringing reef,Hauru
+105,Yes,Yes,Yes,NA,Yes,Yes,-17.52007479,-149.9206248,239.16,851.54,2480.72,723.28,7029.89,Papeto'ai,SW,Reef crest,Hauru
+106,Yes,Yes,Yes,Yes,Yes,Yes,-17.51944682,-149.9170567,619.01,476.06,2401.58,371.72,6910.87,Papeto'ai,SW,Mid lagoon,Hauru
+107,Yes,Yes,Yes,NA,Yes,Yes,-17.51885715,-149.9132726,1021.92,82.89,2359.12,110.06,6877.48,Papeto'ai,SW,Fringing reef,Hauru
+108,Yes,Yes,Yes,Yes,NA,Yes,-17.51272805,-149.9225916,258.82,785.58,3303.05,909.58,6321.8,Papeto'ai,SW,Reef crest,Hauru
+109,Yes,Yes,Yes,NA,NA,Yes,-17.51138762,-149.919454,610.92,455.41,3331.71,695.42,6059.83,Papeto'ai,SW,Mid lagoon,Hauru
+110,Yes,NA,Yes,NA,Yes,Yes,-17.51055999,-149.9159157,999.08,71.88,3315.84,573.06,5907.78,Papeto'ai,SW,Fringing reef,Hauru
+111,Yes,Yes,Yes,Yes,Yes,Yes,-17.50318299,-149.9240371,263.63,861.28,3764.12,1683.01,5522.33,Papeto'ai,SW,Reef crest,Hauru
+112,Yes,Yes,Yes,Yes,Yes,Yes,-17.50348139,-149.920637,663.37,500.28,3515.03,1483.32,5315.06,Papeto'ai,SW,Mid lagoon,Hauru
+113,Yes,Yes,Yes,Yes,Yes,Yes,-17.50287202,-149.91747,910.78,165.35,3309.62,1444.42,5106.02,Papeto'ai,SW,Fringing reef,Hauru
+114,Yes,Yes,Yes,Yes,Yes,Yes,-17.4954558,-149.9235728,232.78,958.34,3218.99,2430.03,5024.24,Papeto'ai,SW,Reef crest,Hauru
+115,Yes,Yes,Yes,NA,Yes,Yes,-17.49504173,-149.9197109,520.51,588.05,2829.94,2350.51,4633.42,Papeto'ai,SW,Mid lagoon,Hauru
+116,Yes,Yes,Yes,NA,Yes,Yes,-17.49474971,-149.9146039,956.68,76.23,2351.61,2053.03,4146.16,Papeto'ai,SW,Fringing reef,Hauru
+117,Yes,Yes,Yes,NA,Yes,Yes,-17.49064844,-149.9111011,700.66,245.27,1793.13,1485.53,3614.27,Papeto'ai,N,Fringing reef,Hauru
+118,Yes,Yes,Yes,Yes,Yes,Yes,-17.48914783,-149.9067514,571.25,164.06,1301.02,1001.98,3141.51,Papeto'ai,N,Fringing reef,Hauru
+119,Yes,Yes,Yes,Yes,Yes,Yes,-17.48591677,-149.9077934,208.64,515.85,1318.34,1117.25,3301.52,Papeto'ai,N,Reef crest,Hauru
+120,Yes,Yes,Yes,Yes,Yes,Yes,-17.48790848,-149.9022525,462.37,334.59,809.34,513.05,2684.16,Papeto'ai,N,Mid lagoon,Hauru
+121,Yes,Yes,Yes,NA,Yes,Yes,-17.48853084,-149.8968575,567.42,271.39,461.25,71.48,2105.03,Papeto'ai,N,Fringing reef,Hauru
+122,Yes,Yes,Yes,Yes,Yes,Yes,-17.48485495,-149.8962351,162.06,576.72,88.94,274.81,2147.15,Papeto'ai,N,Reef pass,Hauru
+123,Yes,Yes,Yes,Yes,Yes,Yes,-17.48842556,-149.8921487,589.92,246.37,498.76,204.62,1620.02,Papeto'ai,N,Fringing reef,Papetoai
+124,Yes,Yes,Yes,NA,Yes,NA,-17.48469737,-149.8922813,176.35,587.19,161.42,172.43,1760.16,Papeto'ai,N,Reef pass,Papetoai
+125,Yes,Yes,Yes,NA,Yes,Yes,-17.49019641,-149.8826645,789.48,137.46,1347.58,371.65,592.26,Papeto'ai,N,Fringing reef,Papetoai
+127,Yes,Yes,Yes,NA,Yes,Yes,-17.4889724,-149.8789846,711.98,332.71,1598.83,149.81,344.49,Papeto'ai,N,Fringing reef,Papetoai
+128,Yes,Yes,NA,Yes,Yes,Yes,-17.48683493,-149.8765044,467.62,505.09,1302.48,25.82,505.09,Papeto'ai,N,Fringing reef,Papetoai
+129,Yes,Yes,Yes,NA,Yes,Yes,-17.48972761,-149.8726504,618.38,232.22,930.83,65.99,232.22,Papeto'ai,N,Fringing reef,Papetoai
+130,Yes,Yes,Yes,Yes,Yes,Yes,-17.48467089,-149.8742172,178.36,785.64,1132.02,181.12,785.64,Papeto'ai,N,Reef crest,Papetoai
+131,Yes,Yes,Yes,Yes,Yes,Yes,-17.48809573,-149.8667564,194.81,590.75,292.46,125.36,590.75,Papeto'ai,N,Reef pass,Papetoai
+132,Yes,Yes,Yes,Yes,Yes,Yes,-17.48744111,-149.8709693,312.65,471.46,718.44,75.03,471.46,Papeto'ai,N,Reef crest,Papetoai
+133,Yes,Yes,NA,Yes,Yes,Yes,-17.49028584,-149.8868992,754.27,111.65,983.86,393.95,1035.51,Papeto'ai,N,Fringing reef,Papetoai
+134,Yes,Yes,Yes,Yes,Yes,Yes,-17.48732954,-149.8870074,434.55,409.14,792.36,489.87,1132.5,Papeto'ai,N,Fringing reef,Papetoai
+135,Yes,NA,Yes,NA,Yes,NA,-17.48452814,-149.8861285,127.01,774.32,810.33,704.34,1222.04,Papeto'ai,N,Reef crest,Papetoai
+136,Yes,Yes,Yes,NA,Yes,Yes,-17.48690316,-149.8805744,448.87,564.85,1430.61,430.75,633.57,Papeto'ai,N,Mid lagoon,Papetoai
+137,Yes,NA,NA,NA,Yes,Yes,-17.48379691,-149.8798111,122.05,900.74,1472.11,471.23,901.66,Papeto'ai,N,Reef crest,Papetoai
+139,Yes,Yes,NA,NA,Yes,Yes,-17.49065096,-149.8681188,507.66,284.82,490.05,30.47,284.82,Papeto'ai,N,Fringing reef,Papetoai
+140,Yes,Yes,NA,Yes,Yes,Yes,-17.49716361,-149.8626436,1201.16,80.17,920.07,10.8,438.05,Papeto'ai,N,Fringing reef,Papetoai
+141,Yes,Yes,NA,NA,Yes,Yes,-17.49316067,-149.8673732,729.33,123.28,589.73,31.14,123.28,Papeto'ai,N,Fringing reef,Papetoai
+142,Yes,Yes,Yes,NA,Yes,Yes,-17.49376006,-149.8519205,1047.37,39.96,970.62,21.55,1564.47,Papeto'ai,N,Fringing reef,Pihaena
+143,Yes,Yes,Yes,NA,Yes,Yes,-17.49082932,-149.8544175,630.69,383.06,559.01,109.28,1380.05,Papeto'ai,N,Reef pass,Pihaena
+144,Yes,Yes,Yes,NA,Yes,Yes,-17.48895002,-149.8550006,441.88,516.89,421.79,193.47,1413.5,Papeto'ai,N,Reef pass,Pihaena
+145,Yes,Yes,Yes,NA,Yes,Yes,-17.48966591,-149.8494205,940.88,33.79,1016.01,375.22,1924.49,Papeto'ai,N,Fringing reef,Pihaena
+146,Yes,Yes,Yes,Yes,Yes,Yes,-17.48545652,-149.8469882,665.63,53.17,1288.2,888.26,2344.91,Papeto'ai,N,Fringing reef,Pihaena
+147,Yes,Yes,Yes,Yes,Yes,Yes,-17.48168911,-149.8498651,168.67,571.13,1171.2,1163.13,2323.79,Papeto'ai,N,Reef crest,Pihaena
+148,Yes,Yes,Yes,Yes,Yes,Yes,-17.48386731,-149.8490207,423.18,334.91,1131.15,951.56,2249.28,Papeto'ai,N,Mid lagoon,Pihaena
+149,Yes,Yes,Yes,Yes,Yes,Yes,-17.48650493,-149.8520296,498.75,399.49,739.91,596.71,1823.91,Papeto'ai,N,Mid lagoon,Pihaena
+150,Yes,Yes,Yes,NA,Yes,Yes,-17.48430225,-149.8420147,772.87,51.09,1664.59,1047.01,2900.04,Papeto'ai,N,Fringing reef,Pihaena
+151,Yes,Yes,Yes,NA,Yes,Yes,-17.47821942,-149.8423604,135.98,718.01,1574.46,1338.72,3188.64,Papeto'ai,N,Reef crest,Pihaena
+152,Yes,Yes,Yes,Yes,Yes,Yes,-17.48009529,-149.8422762,339.71,516.16,1575.44,1210.56,3078.71,Papeto'ai,N,Mid lagoon,Pihaena
+153,Yes,Yes,Yes,NA,Yes,Yes,-17.4784169,-149.8339808,184.54,770.53,683.74,650.03,3439.4,Paopao,N,Reef crest,Pihaena
+154,Yes,NA,Yes,NA,Yes,Yes,-17.4797321,-149.8365316,368.44,589.72,959.95,691.97,3538.12,Paopao,N,Mid lagoon,Pihaena
+155,Yes,Yes,Yes,NA,Yes,Yes,-17.48486702,-149.8347928,885.61,67.61,1030.67,350.65,3171.26,Paopao,N,Fringing reef,Pihaena
+156,Yes,Yes,NA,NA,Yes,Yes,-17.48502921,-149.8312727,843.02,44.33,787.09,19.34,2786.91,Paopao,N,Fringing reef,Pihaena
+157,Yes,Yes,Yes,NA,NA,Yes,-17.48115082,-149.8301379,386.38,411.26,386.96,235.21,2947.43,Paopao,N,Mid lagoon,Pihaena
+158,Yes,Yes,Yes,NA,Yes,Yes,-17.48467013,-149.8275155,796.48,134.83,612.32,21.74,2472.07,Paopao,N,Fringing reef,Pihaena
+159,Yes,Yes,Yes,NA,Yes,Yes,-17.48655573,-149.8250571,1077.61,228.23,845.99,9.6,2221.93,Paopao,N,Fringing reef,Pihaena
+160,Yes,Yes,Yes,NA,Yes,Yes,-17.48204526,-149.8262099,583.21,444.89,331.85,44.61,2733.55,Paopao,N,Reef pass,Pihaena
+161,Yes,Yes,Yes,Yes,Yes,Yes,-17.47370895,-149.7768527,228.29,87.43,402.08,362.85,2167.13,Maharepa,N,Fringing reef,Maharepa
+162,Yes,Yes,Yes,NA,Yes,Yes,-17.47599625,-149.780356,511.07,67.59,471.09,309.28,1736.89,Maharepa,N,Fringing reef,Maharepa
+163,Yes,Yes,Yes,Yes,Yes,Yes,-17.47785238,-149.7866539,757.46,32.28,927.34,822.99,1041.41,Maharepa,N,Fringing reef,Maharepa
+164,Yes,Yes,Yes,NA,Yes,Yes,-17.47880909,-149.790986,676.56,60.36,845.37,737.52,557.01,Maharepa,N,Fringing reef,Maharepa
+165,Yes,Yes,Yes,NA,Yes,Yes,-17.4796057,-149.7961288,617.18,78.94,552.99,210.97,78.94,Maharepa,N,Fringing reef,Maharepa
+166,Yes,Yes,Yes,Yes,Yes,Yes,-17.47499012,-149.7867232,451.97,352.58,727.64,673.51,155.29,Maharepa,N,Mid lagoon,Maharepa
+167,Yes,Yes,Yes,Yes,Yes,Yes,-17.47282634,-149.7810294,210.24,441.48,128.81,28.91,1802.56,Maharepa,N,Reef pass,Maharepa
+168,Yes,Yes,Yes,NA,Yes,Yes,-17.47187021,-149.786553,102.97,694.58,593.73,628.15,1374.55,Maharepa,N,Reef crest,Maharepa
+169,Yes,Yes,Yes,Yes,Yes,Yes,-17.47434254,-149.7937432,106.76,619.41,413.38,454.82,719.4,Maharepa,N,Reef crest,Maharepa
+170,Yes,Yes,Yes,Yes,Yes,Yes,-17.47682031,-149.7950122,332,404.97,360.97,279.56,404.97,Maharepa,N,Mid lagoon,Maharepa
+171,Yes,Yes,Yes,Yes,Yes,Yes,-17.47496934,-149.7901163,320.84,447.41,801.31,819.81,868.66,Maharepa,N,Mid lagoon,Maharepa
+173,Yes,Yes,Yes,NA,Yes,Yes,-17.4760501,-149.7973693,222.05,485.08,136,47.75,485.08,Maharepa,N,Reef pass,Maharepa
+174,Yes,NA,NA,NA,NA,NA,-17.4725779,-149.7778578,135.73,257.26,240.77,244.95,2118.68,Maharepa,N,Reef crest,Maharepa
+175,Yes,Yes,Yes,Yes,Yes,Yes,-17.48082167,-149.8048369,802.19,46.51,843.69,11.47,46.51,Maharepa,N,Fringing reef,Paraoro
+175 #2,Yes,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+176,Yes,Yes,Yes,NA,Yes,Yes,-17.48256359,-149.8138506,1004.77,99.79,1112.41,359.67,99.79,Maharepa,N,Fringing reef,Paraoro
+177,Yes,Yes,Yes,NA,Yes,NA,-17.48383638,-149.8168138,1020.18,79.09,956.64,20.22,79.09,Maharepa,N,Fringing reef,Paraoro
+178,Yes,Yes,Yes,NA,Yes,Yes,-17.48728956,-149.8183929,1270.91,71.13,1163.32,16.19,414.56,Maharepa,N,Fringing reef,Paraoro
+179,Yes,Yes,Yes,NA,Yes,Yes,-17.48120195,-149.8175988,729.31,343.17,701.24,95.53,343.17,Maharepa,N,Reef pass,Paraoro
+180,Yes,NA,NA,NA,Yes,Yes,-17.47707864,-149.8212362,138.36,942.75,218.5,222.03,942.75,Maharepa,N,Reef pass,Paraoro
+181,Yes,Yes,Yes,Yes,Yes,Yes,-17.47477999,-149.8148865,148.15,968.79,927.95,808.03,968.79,Maharepa,N,Reef crest,Paraoro
+182,Yes,Yes,Yes,NA,Yes,Yes,-17.47831405,-149.8135389,545.85,540.67,1015.63,595.65,540.67,Maharepa,N,Mid lagoon,Paraoro
+183,Yes,Yes,Yes,NA,Yes,Yes,-17.48034675,-149.8136512,778.13,350.94,1040.79,428.44,350.94,Maharepa,N,Mid lagoon,Paraoro
+184,Yes,Yes,Yes,NA,Yes,Yes,-17.4749949,-149.806126,151.84,609.8,649.07,490.27,609.8,Maharepa,N,Reef crest,Paraoro
+185,Yes,Yes,Yes,Yes,Yes,Yes,-17.47691201,-149.8066267,370.37,469.56,745.12,345.02,469.56,Maharepa,N,Mid lagoon,Paraoro
+186#2,Yes,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+186,Yes,Yes,Yes,NA,Yes,Yes,-17.47711502,-149.8025034,343.12,286.84,376.65,118.08,286.84,Maharepa,N,Reef pass,Paraoro
+187,Yes,Yes,Yes,Yes,Yes,Yes,-17.47899399,-149.8063396,598.16,249.9,824.04,181.1,249.9,Maharepa,N,Mid lagoon,Paraoro
+188,Yes,NA,NA,NA,Yes,Yes,-17.47806804,-149.8172428,442.27,653.2,620.63,372.55,653.2,Maharepa,N,Mid lagoon,Paraoro
+OPU 1,Yes,Yes,Yes,NA,NA,Yes,-17.50843442,-149.8525883,2462.42,30.02,2372.07,10.08,2103.39,Papeto'ai,N,Bay,Pihaena
+OPU 2,Yes,Yes,NA,NA,NA,Yes,-17.50653919,-149.8576045,2172.64,57.4,2062.43,14.74,1628.15,Papeto'ai,N,Bay,Papetoai
+Cook 1,Yes,Yes,NA,NA,NA,NA,-17.49718255,-149.8180483,2374.75,90.09,2223.3,12.88,1548.56,Paopao,N,Bay,Paraoro
+42,NA,Yes,Yes,NA,Yes,Yes,-17.56927254,-149.7896573,410.72,323.84,447.09,50.95,1508.11,Afareaitu,SE,Mid lagoon,Haumi
+72,NA,Yes,Yes,Yes,Yes,Yes,-17.52172509,-149.7643641,167.57,888.8,44.55,43.43,1245.34,Vai'are,SE,Reef pass,Teavaro
+126,NA,Yes,NA,NA,Yes,Yes,-17.49179923,-149.8794897,1027.4,62.52,1688.39,64.06,236.37,Papeto'ai,N,Fringing reef,Papetoai
+172,NA,Yes,Yes,NA,Yes,Yes,-17.4804404,-149.799661,700.15,53.22,618.5,64.26,53.22,Maharepa,N,Fringing reef,Maharepa
+49,NA,NA,Yes,NA,NA,NA,-17.57717782,-149.8610173,1231.63,91.75,1836.86,222.89,1030.01,Vai'anae/Atiha,SW,Fringing reef,Vaianae
+138,NA,NA,Yes,NA,Yes,Yes,-17.49209605,-149.8746473,945.32,36.46,1202.92,308.87,36.46,Papeto'ai,N,Fringing reef,Papetoai
+LTER_1_Backreef,NA,NA,NA,Yes,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+LTER_1_Fringe,NA,NA,NA,Yes,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+LTER_2_Backreef,NA,NA,NA,Yes,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+LTER_2_Fringe,NA,NA,NA,Yes,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+LTER_3_Backreef,NA,NA,NA,Yes,Yes,NA,-17.5138,-149.76415,NA,NA,NA,NA,NA,NA,NA,NA,NA
+LTER_3_Fringe,NA,NA,NA,Yes,Yes,NA,-17.51305,-149.76688,NA,NA,NA,NA,NA,NA,NA,Fringing reef,NA
+LTER_4_Backreef,NA,NA,NA,Yes,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+LTER_4_Fringe,NA,NA,NA,Yes,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+LTER_5_Backreef,NA,NA,NA,Yes,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+LTER_5_Fringe,NA,NA,NA,Yes,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+LTER_6_Backreef,NA,NA,NA,Yes,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+LTER_6_Fringe,NA,NA,NA,Yes,Yes,NA,-17.51553,-149.91452,NA,NA,NA,NA,NA,NA,NA,Fringing reef,NA
+Sofitel,NA,NA,NA,Yes,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+200,NA,NA,NA,NA,Yes,Yes,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+201,NA,NA,NA,NA,Yes,Yes,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+202,NA,NA,NA,NA,Yes,Yes,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+203,NA,NA,NA,NA,Yes,Yes,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+205,NA,NA,NA,NA,Yes,Yes,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+206,NA,NA,NA,NA,Yes,Yes,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+207,NA,NA,NA,NA,Yes,Yes,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+208,NA,NA,NA,NA,Yes,Yes,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+209,NA,NA,NA,NA,Yes,Yes,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+295,NA,NA,NA,NA,Yes,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+Opu_1,NA,NA,NA,NA,Yes,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+Cooks_1,NA,NA,NA,NA,Yes,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+Opu_2,NA,NA,NA,NA,Yes,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+15,NA,NA,NA,NA,NA,Yes,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+204,NA,NA,NA,NA,NA,Yes,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+210,NA,NA,NA,NA,NA,Yes,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+LTER 3 Back Reef,NA,NA,NA,NA,NA,Yes,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+LTER 3 Fringing Reef,NA,NA,NA,NA,NA,Yes,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+LTER 6 Fringing,NA,NA,NA,NA,NA,Yes,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+Cooks 1,NA,NA,NA,NA,NA,Yes,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
