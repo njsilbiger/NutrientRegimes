@@ -10,6 +10,7 @@ library(ggdendro)
 library(patchwork)
 library(ggmap)
 library(viridis)
+
 library(maptools)
 library(ggforce)
 library(ggridges)
@@ -72,28 +73,34 @@ AllData<-full_join(TurbAll, AllWater) %>%
 
 ## Make a ridge plot
 AllData %>%
+ # filter(TimePeriod != "2020-August") %>%
   pivot_longer(cols = dN15:Ammonia) %>%
   select(TimePeriod, name, value)%>%
   drop_na() %>%
 ggplot(aes(x = value, fill = TimePeriod))+
   geom_density(alpha = 0.5)+
   theme_bw()+
+ # coord_trans(x= "log")+
   #xlim(0,3.5)+
   scale_fill_viridis_d()+
   facet_wrap(~name, scales = "free")
+ggsave(here("Output","ridgeplot.png"), width = 8, height = 6)
 
 # water column nutrient data is off for August 2020... might need to drop
 
 AllData %>%
-#  filter(TimePeriod != "2020-August") %>%
+  filter(TimePeriod != "2020-August") %>%
   drop_na(Habitat, Island_shore,Nitrite_plus_Nitrate) %>%
   droplevels()%>%
-  filter(Habitat != "Bay") %>%
+ # filter(Habitat != "Bay") %>%
   ggplot(aes(x = Percent_N, y = Nitrite_plus_Nitrate, color = TimePeriod))+
   geom_point()+
-  geom_smooth(method = "lm")+
-  facet_wrap(~Island_shore*Habitat, scale = "free")
-
+  geom_smooth(method = "glm", formula = y~log(x),
+              method.args = list(family = gaussian(link = 'log')))+
+  coord_trans(y = "log")+
+  #geom_smooth(method = "lm")+
+  facet_wrap(~TimePeriod, scale = "free")
+ggsave(here("Output","NNvspercentN.png"), width = 6, height = 4)
 
 AllData %>%
   #  filter(TimePeriod != "2020-August") %>%
@@ -212,6 +219,26 @@ p3<-AllData %>%
   coord_trans(x = "log")+
   facet_wrap(~Island_shore) +
   theme_bw()
+
+# Distance to crest
+p4<-AllData %>%
+  #  filter(TimePeriod != "2020-August") %>%
+  drop_na(Island_shore,Silicate) %>%
+  droplevels()%>%
+  #filter(Habitat != "Bay") %>%
+  filter(Silicate<4, Nitrite_plus_Nitrate<2.5, Phosphate <0.6,# drop a few outliers
+         Year != 2020)%>% # the august nitrate data is bad :(
+  ggplot(aes(x = Distsance.to.crest, y = Nitrite_plus_Nitrate, color = factor(Year)))+
+  geom_point()+
+  geom_smooth(method = "lm", formula = y~x)+
+#  coord_trans(x = "log")+
+  facet_wrap(~Island_shore, scale = "free_x") +
+  theme_bw()
+
+
+p3/p4 + plot_layout(guides = "collect")
+ggsave(here("Output","N_si_crest.png"), width = 6, height = 6)
+
 
 p1/p2/p3 + plot_layout(guides = "collect")
 ggsave(here("Output","N_silicate.pdf"), width = 6, height = 6)
