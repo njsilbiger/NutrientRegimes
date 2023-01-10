@@ -10,10 +10,10 @@ library(ggdendro)
 library(patchwork)
 library(ggmap)
 library(viridis)
-
 library(maptools)
 library(ggforce)
 library(ggridges)
+library(broom)
 
 # Read Data ######
 # Water column Data
@@ -70,7 +70,7 @@ AllData<-full_join(TurbAll, AllWater) %>%
   drop_na(Year) %>%
   select(-c("Jan-16":"May-21"))
 
-
+write_csv(AllData,here("Data","DataTurbWater.csv"))
 ## Make a ridge plot
 AllData %>%
  # filter(TimePeriod != "2020-August") %>%
@@ -89,17 +89,19 @@ ggsave(here("Output","ridgeplot.png"), width = 8, height = 6)
 # water column nutrient data is off for August 2020... might need to drop
 
 AllData %>%
-  filter(TimePeriod != "2020-August") %>%
+ # filter(TimePeriod != "2020-August") %>%
   drop_na(Habitat, Island_shore,Nitrite_plus_Nitrate) %>%
   droplevels()%>%
  # filter(Habitat != "Bay") %>%
-  ggplot(aes(x = Percent_N, y = Nitrite_plus_Nitrate, color = TimePeriod))+
-  geom_point()+
-  geom_smooth(method = "glm", formula = y~log(x),
-              method.args = list(family = gaussian(link = 'log')))+
-  coord_trans(y = "log")+
+  ggplot(aes(x = Percent_N, y = Nitrite_plus_Nitrate))+
+  geom_point(aes(color = TimePeriod))+
+  geom_smooth(method = "lm") 
+  # geom_smooth(method = "glm", formula = y~log(x),
+  #             method.args = list(family = gaussian(link = 'log')))+
+ # coord_trans(y = "log")
   #geom_smooth(method = "lm")+
-  facet_wrap(~TimePeriod, scale = "free")
+ # facet_wrap(~TimePeriod, scale = "free")
+
 ggsave(here("Output","NNvspercentN.png"), width = 6, height = 4)
 
 AllData %>%
@@ -172,10 +174,328 @@ AllData %>%
   facet_wrap(~Island_shore)
 
 AllData %>%
+  group_by(Year) %>%
+  summarise(SI = median(Phosphate, na.rm = TRUE))
+
+
+  ggplot()+
+  geom_violin(aes(x = factor(Year), y = Silicate, fill =factor(Year) ))+
+  coord_trans(y = "log")
+
+
+
+Y2021<-AllData %>%
+  filter(Year == 2021) %>%
+  select(Site, Nitrite_plus_Nitrate_21 =Nitrite_plus_Nitrate , Silicate_21 =Silicate, Phosphate_21 =Phosphate)
+ 
+Y2022<-AllData %>%
+  filter(Year == 2022) %>%
+  select(Site, Nitrite_plus_Nitrate, Silicate, Phosphate)
+
+left_join(Y2021, Y2022) %>%
+  filter(Nitrite_plus_Nitrate < 3) %>%
+  ggplot(aes(x =Nitrite_plus_Nitrate_21, y=Nitrite_plus_Nitrate ))+
+  geom_point()+
+  geom_abline(slope = 1)
+
+
+left_join(Y2021, Y2022) %>%
+  filter(Nitrite_plus_Nitrate < 3, Silicate_21 <6) %>%
+  ggplot(aes(x =log(Silicate_21), y=log(Silicate) ))+
+  geom_point()+
+  geom_abline(slope = 1)
   ggplot()+
   geom_boxplot(aes(x = factor(Year), y = Percent_N, fill =factor(Year)), )
 
+  left_join(Y2021, Y2022) %>%
+    filter(Nitrite_plus_Nitrate < 3, Silicate_21 <6, Phosphate < 0.4) %>%
+    ggplot(aes(x =Phosphate_21, y=Phosphate))+
+    geom_point()+
+    geom_abline(slope = 1)
+  
+  
+  left_join(Y2021, Y2022) %>%
+    filter(Nitrite_plus_Nitrate < 3) %>% 
+    mutate(deltaNN = Nitrite_plus_Nitrate - Nitrite_plus_Nitrate_21) %>%
+    ggplot(aes(x = Nitrite_plus_Nitrate_21, y = deltaNN))+
+    geom_point()
+  
+  left_join(Y2021, Y2022) %>%
+    filter(Nitrite_plus_Nitrate < 3) %>% 
+    mutate(deltaNN = Nitrite_plus_Nitrate - Nitrite_plus_Nitrate_21)    
+    ggplot(aes(x = deltaNN))+
+    geom_density()
+  
+  ggplot()+
+    geom_boxplot(aes(x = factor(Year), y = Percent_N, fill =factor(Year)), )
+  
 
+Silicateplot<- function(yvar, yname){AllData %>%
+    #  filter(TimePeriod != "2020-August") %>%
+    drop_na(Island_shore,Silicate) %>%
+    droplevels()%>%
+    #filter(Habitat != "Bay") %>%
+    filter(Silicate<4, Nitrite_plus_Nitrate<2.5, Phosphate <0.6,# drop a few outliers
+ Year != 2020)%>% # the august nitrate data is bad :(
+    ggplot(aes(x = Silicate, y = {{yvar}}))+
+    geom_point(aes(color = factor(Year)))+
+    geom_smooth(method = "lm", formula = y~log(x))+
+    labs(y = yname,
+         color = "",
+         x = "Silicate umol L-1")+
+    coord_trans(x = "log")+
+    facet_wrap(~Island_shore) +
+    theme_bw()}
+
+Crestplot<- function(yvar, yname){AllData %>%
+    #  filter(TimePeriod != "2020-August") %>%
+    drop_na(Island_shore,Silicate) %>%
+    droplevels()%>%
+    #filter(Habitat != "Bay") %>%
+    filter(Silicate<4, Nitrite_plus_Nitrate<2.5, Phosphate <0.6,# drop a few outliers
+           Year != 2020)%>% # the august nitrate data is bad :(
+    ggplot(aes(x = Distsance.to.crest, y = {{yvar}}))+
+    geom_point(aes(color = factor(Year)))+
+    geom_smooth(method = "lm")+
+    labs(y = yname,
+         color = "",
+         x = "Distance to Reef Crest (m)")+
+   # coord_trans(x = "log")+
+    facet_wrap(~Island_shore, scales = "free_x") +
+    theme_bw()}
+
+Silicateplot((Nitrite_plus_Nitrate +Ammonia)/Phosphate, "DIN:DIP")
+Silicateplot(Nitrite_plus_Nitrate, "Nitrate + Nitrite umolL-1")
+Silicateplot(Ammonia, "Ammonia umolL-1")
+Silicateplot(Phosphate, "Phosphate umolL-1")
+a1<-Silicateplot(Percent_N, "%N")
+
+Crestplot((Nitrite_plus_Nitrate +Ammonia)/Phosphate, "DIN:DIP")
+Crestplot(Nitrite_plus_Nitrate, "Nitrate + Nitrite umolL-1")
+Crestplot(Ammonia, "Ammonia umolL-1")
+Crestplot(Phosphate, "Phosphate umolL-1")
+a2<-Crestplot(Percent_N, "%N")
+
+
+a1 + a2
+
+b1<-AllData %>%
+  #  filter(TimePeriod != "2020-August") %>%
+  drop_na(Island_shore,Silicate) %>%
+  droplevels()%>%
+  #filter(Habitat != "Bay") %>%
+  filter(Silicate<4, Nitrite_plus_Nitrate<2.5, Phosphate <0.6,# drop a few outliers
+         Year != 2020)%>% # the august nitrate data is bad :(
+  ggplot(aes(x = Silicate, y = Percent_N))+
+  geom_point(aes(color = factor(Year)))+
+  geom_smooth(method = "lm", formula = y~log(x))+
+  labs(y = "%N",
+       color = "",
+       x = "Silicate umol L-1")+
+  coord_trans(x = "log")+
+  theme_bw()
+
+modelSi<-lm(Percent_N~log(Silicate), data = AllData %>%
+              #  filter(TimePeriod != "2020-August") %>%
+              drop_na(Island_shore,Silicate) %>%
+              droplevels()%>%
+              #filter(Habitat != "Bay") %>%
+              filter(Silicate<4, Nitrite_plus_Nitrate<2.5, Phosphate <0.6,# drop a few outliers
+                     Year != 2020))
+
+anova(modelSi)
+summary(modelSi)
+
+b2<-AllData %>%
+  #  filter(TimePeriod != "2020-August") %>%
+  drop_na(Island_shore,Silicate) %>%
+  droplevels()%>%
+  #filter(Habitat != "Bay") %>%
+  filter(Silicate<4, Nitrite_plus_Nitrate<2.5, Phosphate <0.6,# drop a few outliers
+         Year != 2020)%>% # the august nitrate data is bad :(
+  ggplot(aes(x = Distsance.to.crest, y = Percent_N))+
+  geom_point(aes(color = factor(Year)))+
+  geom_smooth(method = "lm", formula = y~log(x))+
+  labs(y = "Distance to crest (m)",
+       color = "",
+       x = "Silicate umol L-1")+
+  coord_trans(x = "log")+
+  theme_bw()
+
+
+modelDC<-lm(Percent_N~Distsance.to.crest, data = AllData %>%
+              #  filter(TimePeriod != "2020-August") %>%
+              drop_na(Island_shore,Silicate) %>%
+              droplevels()%>%
+              #filter(Habitat != "Bay") %>%
+              filter(Silicate<4, Nitrite_plus_Nitrate<2.5, Phosphate <0.6,# drop a few outliers
+                     Year != 2020))
+anova(modelDC)
+summary(modelDC)
+
+b1 + b2
+#### Look at the p-values for these plots #####
+SI_p_values<-AllData %>%
+  drop_na(Island_shore,Silicate) %>%
+  droplevels()%>%
+  #filter(Habitat != "Bay") %>%
+  filter(Silicate<4, Nitrite_plus_Nitrate<2.5, Phosphate <0.6,# drop a few outliers
+         Year != 2020) %>%
+  mutate(N_P = (Nitrite_plus_Nitrate +Ammonia)/Phosphate) %>%
+  pivot_longer(cols = c(Nitrite_plus_Nitrate,Phosphate, N_P, Percent_N, Percent_C, C_to_N_ratio)) %>% 
+  group_by(name) %>%
+ nest()%>%
+  mutate(fit = map(data, ~lm(value~log(Silicate)*Island_shore, data = .)),
+         fit2 = map(data, ~lm(value~Distsance.to.crest*Island_shore, data = .)),
+# fit = map(data, ~lm(TA.diff/2~DIC.diff, data = .)),
+coefs = map(fit, tidy),
+coefs2 = map(fit2, tidy))%>%
+  select(name,  coefs, coefs2) %>%
+  unnest(cols = c(coefs)) %>%
+  mutate(sig = ifelse(p.value <= 0.05, "yes", "no")) %>%
+  filter(sig == "yes", term != "(Intercept)")
+  
+
+# Distance to crest #####
+Dist_p_values<-AllData %>%
+  drop_na(Island_shore,Silicate) %>%
+  droplevels()%>%
+  #filter(Habitat != "Bay") %>%
+  filter(Silicate<4, Nitrite_plus_Nitrate<2.5, Phosphate <0.6,# drop a few outliers
+         Year != 2020) %>%
+  mutate(N_P = (Nitrite_plus_Nitrate +Ammonia)/Phosphate) %>%
+  pivot_longer(cols = c(Nitrite_plus_Nitrate,Phosphate, N_P, Percent_N, Percent_C, C_to_N_ratio)) %>% 
+  group_by(name) %>%
+  nest()%>%
+  mutate(fit = map(data, ~lm(value~log(Silicate)*Island_shore, data = .)),
+         fit2 = map(data, ~lm(value~Distsance.to.crest*Island_shore, data = .)),
+         # fit = map(data, ~lm(TA.diff/2~DIC.diff, data = .)),
+         coefs = map(fit, tidy),
+         coefs2 = map(fit2, tidy))%>%
+  select(name,  coefs, coefs2) %>%
+  unnest(cols = c(coefs2)) %>%
+  mutate(sig = ifelse(p.value <= 0.05, "yes", "no")) %>%
+  filter(sig == "yes", term != "(Intercept)")
+
+
+
+####################################
+
+## Make a PCA
+PCAData<-AllData %>%
+  filter(Silicate<4, Nitrite_plus_Nitrate<2.5, Phosphate <0.6,# drop a few outliers
+        # Year != 2020
+         ) %>%
+  select(Silicate, Nitrite_plus_Nitrate, Phosphate, Ammonia)%>%
+  #droplevels()%>%
+  #filter(Habitat != "Bay") %>%
+  drop_na() %>%
+  mutate_all(.funs = function(x){log(x+0.1)})
+
+
+
+pca_nuts <- prcomp(PCAData, scale. = TRUE, center = TRUE)
+perc.explained<-round(100*pca_nuts $sdev/sum(pca_nuts $sdev),1)
+PC_scores <-as_tibble(pca_nuts$x[,1:2])
+
+PC_loadings<-as_tibble(pca_nuts$rotation) %>%
+  bind_cols(labels = rownames(pca_nuts$rotation))
+
+## Join with the original data
+AllPCAData<-AllData %>%
+  filter(Silicate<4, Nitrite_plus_Nitrate<2.5, Phosphate <0.6,# drop a few outliers
+        # Year != 2020
+         ) %>%
+ # select(Silicate, Nitrite_plus_Nitrate, Phosphate, Ammonia)%>%
+  drop_na(Silicate, Nitrite_plus_Nitrate, Phosphate, Ammonia) %>%
+  #mutate_all(.funs = function(x){log(x+0.1)})
+  bind_cols(PC_scores)
+
+
+scoreplot<-AllPCAData %>%
+  mutate(Year = as.factor(Year))%>%
+  ggplot(aes(x = PC1, y = PC2, color = Year))+
+ #  coord_cartesian(xlim = c(-6, 6), ylim = c(-6, 6)) +
+  scale_shape_manual(values = c(1, 22,15))+
+  # scale_colour_hue(l = 45)+
+  # scale_fill_hue(l = 45)+
+  #
+#  scale_colour_manual(values = c("#D64550","#EA9E8D"))+
+#  scale_fill_manual(values = c("#D64550","#EA9E8D"))+
+  geom_hline(yintercept = 0, lty = 2)+
+  geom_vline(xintercept = 0, lty = 2)+
+  ggforce::geom_mark_ellipse(
+    aes(fill = Year, label = Year, color =Year), 
+    alpha = .35, show.legend = FALSE,  label.buffer = unit(1, "mm"), con.cap=0)+
+  geom_point(size = 2,aes(shape = Island_shore)) +
+  labs(
+       x = paste0("PC1 ","(",perc.explained[1],"%)"),
+       y = paste0("PC2 ","(",perc.explained[2],"%)"))+
+  theme_bw()+
+  theme(legend.position = "none",
+        panel.grid.major = element_blank(), 
+        panel.grid.minor = element_blank(),
+        axis.title = element_text(size = 18),
+        axis.text = element_text(size = 16),
+        plot.title = element_text(hjust = 0.5, size = 18))
+
+
+AllPCAData %>%
+  mutate(Year = as.factor(Year))%>%
+  ggplot(aes(x = PC1, y = PC2, color = Year))+
+  #  coord_cartesian(xlim = c(-6, 6), ylim = c(-6, 6)) +
+  scale_shape_manual(values = c(1, 22,15))+
+  # scale_colour_hue(l = 45)+
+  # scale_fill_hue(l = 45)+
+  #
+#  scale_colour_manual(values = c("#D64550","#EA9E8D"))+
+#  scale_fill_manual(values = c("#D64550","#EA9E8D"))+
+  geom_hline(yintercept = 0, lty = 2)+
+  geom_vline(xintercept = 0, lty = 2)+
+  ggforce::geom_mark_ellipse(
+    aes(fill = Island_shore, label = Island_shore, color =Island_shore), 
+    alpha = .35, show.legend = FALSE,  label.buffer = unit(1, "mm"), con.cap=0)+
+  geom_point(size = 2,aes(shape = Island_shore)) +
+  labs(
+    x = paste0("PC1 ","(",perc.explained[1],"%)"),
+    y = paste0("PC2 ","(",perc.explained[2],"%)"))+
+  theme_bw()+
+  theme(legend.position = "none",
+        panel.grid.major = element_blank(), 
+        panel.grid.minor = element_blank(),
+        axis.title = element_text(size = 18),
+        axis.text = element_text(size = 16),
+        plot.title = element_text(hjust = 0.5, size = 18)) +
+  facet_wrap(~Year)
+
+
+
+loads<-PC_loadings %>%
+  ggplot(aes(x=PC1, y=PC2, label=labels))+
+  geom_text_repel(aes(x = PC1*5+0.1, y = PC2*5+.1 ), show.legend = FALSE, size = 5, fill=NA, label.colour = NA) +
+  geom_segment(data = PC_loadings, aes(x=0,y=0,xend=PC1*5,yend=PC2*5),size = 1.2,
+               arrow=arrow(length=unit(0.1,"cm")))+
+  # annotate("text", x = PC_loadings$PC1*10+0.1, y = PC_loadings$PC2*10+.1,
+  #          label = PC_loadings$labels)+
+  coord_cartesian(xlim = c(-5, 5), ylim = c(-5, 5)) +
+  labs(color ="",
+       x = paste0("PC1 ","(",perc.explained[1],"%)"),
+       y = paste0("PC2 ","(",perc.explained[2],"%)"))+
+#  scale_color_manual(values = wes_palette("Darjeeling1"))+
+  theme_bw()+
+  theme(panel.grid.major = element_blank(), 
+        panel.grid.minor = element_blank(),
+        legend.position = c(0.75, 0.85),
+        legend.text = element_markdown(size = 16),
+        legend.key.size = unit(1, 'cm'),
+        axis.title = element_text(size = 18),
+        axis.text = element_text(size = 16))
+
+
+scoreplot + loads
+ggsave(here("Output","PCA_w2020.png"), width = 8, height = 4)
+
+################3
 p1<-AllData %>%
   #  filter(TimePeriod != "2020-August") %>%
   drop_na(Island_shore,Silicate) %>%
@@ -186,10 +506,12 @@ p1<-AllData %>%
   ggplot(aes(x = Silicate, y = (Nitrite_plus_Nitrate+Ammonia)/Phosphate, color = factor(Year)))+
   geom_point()+
   geom_smooth(method = "lm", formula = y~log(x))+
-  labs(y = "N:P")+
+  labs(y = "N:P",
+        color = "",
+       x = "Silicate umol L-1")+
   coord_trans(x = "log")+
   facet_wrap(~Island_shore) +
-  theme_bw()
+  theme_bw() 
 
 
 p2<-AllData %>%
@@ -203,6 +525,9 @@ p2<-AllData %>%
   geom_point()+
   geom_smooth(method = "lm", formula = y~log(x))+
   coord_trans(x = "log")+
+  labs(y = "Ammonia umol L-1",
+       color = "",
+       x = "Silicate umol L-1")+
   facet_wrap(~Island_shore) +
   theme_bw()
 
@@ -217,11 +542,31 @@ p3<-AllData %>%
   geom_point()+
   geom_smooth(method = "lm", formula = y~log(x))+
   coord_trans(x = "log")+
+  labs(y = "NOx umol L-1",
+       color = "",
+       x = "Silicate umol L-1")+
+  facet_wrap(~Island_shore) +
+  theme_bw()
+
+p4<-AllData %>%
+  #  filter(TimePeriod != "2020-August") %>%
+  drop_na(Island_shore,Silicate) %>%
+  droplevels()%>%
+  #filter(Habitat != "Bay") %>%
+  filter(Silicate<4, Nitrite_plus_Nitrate<2.5, Phosphate <0.6,# drop a few outliers
+         Year != 2020)%>% # the august nitrate data is bad :(
+  ggplot(aes(x = Silicate, y = Percent_N, color = factor(Year)))+
+  geom_point()+
+  geom_smooth(method = "lm", formula = y~log(x))+
+  coord_trans(x = "log")+
+  labs(y = "%N",
+       color = "",
+       x = "Silicate umol L-1")+
   facet_wrap(~Island_shore) +
   theme_bw()
 
 # Distance to crest
-p4<-AllData %>%
+p5<-AllData %>%
   #  filter(TimePeriod != "2020-August") %>%
   drop_na(Island_shore,Silicate) %>%
   droplevels()%>%
